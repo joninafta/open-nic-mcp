@@ -1,0 +1,36 @@
+{
+  "name": "open-nic-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for OpenNIC packet filter project context management",
+  "type": "module",
+  "main": "build/index.js",
+  "bin": {
+    "opennic-filter-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x build/index.js",
+    "start": "node build/index.js",
+    "dev": "tsc && node build/index.js",
+    "test": "(echo '{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"initialize\", \"params\": {\"protocolVersion\": \"2024-11-05\", \"capabilities\": {}, \"clientInfo\": {\"name\": \"test\", \"version\": \"1.0.0\"}}}'; echo '{\"jsonrpc\": \"2.0\", \"id\": 2, \"method\": \"resources/list\"}'; echo '{\"jsonrpc\": \"2.0\", \"id\": 3, \"method\": \"tools/list\"}') | npm start"
+  },
+  "keywords": [
+    "mcp",
+    "opennic",
+    "packet-filter",
+    "fpga",
+    "verification"
+  ],
+  "author": "",
+  "license": "ISC",
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "zod": "^3.25.53"
+  }
+}
